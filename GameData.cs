@@ -32,12 +32,27 @@ namespace _06_Tic_Tac_Toe
         // Game Introduction Text
         public static List<string> Intro =>
         [
-        "06 - Tic Tac Toe",
-        "========================================================================",
-        "Welcome to Tic Tac Toe!",
-        "",
-        "Good luck and have fun!",
-        "========================================================================",
-    ];
+            "06 - Tic Tac Toe",
+            "========================================================================",
+            "Welcome to Tic Tac Toe!",
+            "",
+            "The game is played on a 3x3 grid.",
+            "Players take turns placing their symbols (X or O) in empty cells.",
+            "The first player to get three of their symbols in a row (horizontally, vertically, or diagonally) wins.",
+            "If all cells are filled and no player has three in a row, the game ends in a tie.",
+            "",
+            "Good luck and have fun!",
+            "========================================================================",
+        ];
+
+        public static List<string> Instructions =>
+        [
+            "How to play:",
+            "",
+            "- You are 'X' and the AI is 'O'",
+            "- Enter your move as 'row column' (e.g., '0 1' for top-middle)",
+            "- Try to get 3 in a row (horizontally, vertically, or diagonally)",
+            "",
+        ];
     }
 }

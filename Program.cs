@@ -47,7 +47,7 @@ namespace _06_Tic_Tac_Toe
                 playAgain = UI.AskPlayAgain();
             }
 
-            UI.ShowExtro;
+            UI.ShowExtro();
         }
     }
 }

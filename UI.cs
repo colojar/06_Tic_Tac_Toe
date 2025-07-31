@@ -16,7 +16,15 @@ namespace _06_Tic_Tac_Toe
             }
         }
 
-        public static void showExtro()
+        public static void ShowInstructions()
+        {
+            foreach (string line in GameData.Instructions)
+            {
+                Console.WriteLine(line);
+            }
+        }
+
+        public static void ShowExtro()
         {
             Console.WriteLine("Thank you for playing Tic Tac Toe!");
             Console.WriteLine("Goodbye!");
@@ -144,15 +152,6 @@ namespace _06_Tic_Tac_Toe
             string? input = Console.ReadLine();
             return !string.IsNullOrEmpty(input) && 
                    (input.ToLower().StartsWith('y') || input.ToLower() == "yes");
-        }
-
-        public static void ShowInstructions()
-        {
-            Console.WriteLine("How to play:");
-            Console.WriteLine("- You are 'X' and the AI is 'O'");
-            Console.WriteLine("- Enter your move as 'row column' (e.g., '0 1' for top-middle)");
-            Console.WriteLine("- Try to get 3 in a row (horizontally, vertically, or diagonally)");
-            Console.WriteLine();
         }
     }
 }
