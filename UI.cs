@@ -8,11 +8,6 @@ namespace _06_Tic_Tac_Toe
 {
     internal class UI
     {
-        // UI Display constants
-        private static readonly char EMPTY_DISPLAY = '·';
-        private static readonly int AI_DELAY_MS = 1000;
-        private static readonly int RESULT_BORDER_LENGTH = 50;
-
         public static void ShowIntro()
         {
             foreach (string line in GameData.Intro)
@@ -33,10 +28,10 @@ namespace _06_Tic_Tac_Toe
             Console.WriteLine("     0   1   2");
             Console.WriteLine("   +---+---+---+");
             
-            for (int row = 0; row < Logic.BOARD_SIZE; row++)
+            for (int row = 0; row < GameData.BOARD_SIZE; row++)
             {
                 Console.Write($" {row} ");
-                for (int col = 0; col < Logic.BOARD_SIZE; col++)
+                for (int col = 0; col < GameData.BOARD_SIZE; col++)
                 {
                     Console.Write($"| {Logic.gameBoard[row, col]} ");
                 }
@@ -52,15 +47,15 @@ namespace _06_Tic_Tac_Toe
             Console.WriteLine("     0   1   2");
             Console.WriteLine("   +---+---+---+");
             
-            for (int row = 0; row < Logic.BOARD_SIZE; row++)
+            for (int row = 0; row < GameData.BOARD_SIZE; row++)
             {
                 Console.Write($" {row} ");
-                for (int col = 0; col < Logic.BOARD_SIZE; col++)
+                for (int col = 0; col < GameData.BOARD_SIZE; col++)
                 {
                     char display;
-                    if (Logic.gameBoard[row, col] == Logic.EMPTY_CELL)
+                    if (Logic.gameBoard[row, col] == GameData.EMPTY_CELL)
                     {
-                        display = EMPTY_DISPLAY;
+                        display = GameData.EMPTY_DISPLAY;
                     }
                     else
                     {
@@ -117,7 +112,7 @@ namespace _06_Tic_Tac_Toe
 
         public static void ShowGameResult(char gameState)
         {
-            Console.WriteLine("\n" + new string('=', RESULT_BORDER_LENGTH));
+            Console.WriteLine("\n" + new string('=', GameData.RESULT_BORDER_LENGTH));
             
             switch (gameState)
             {
@@ -132,13 +127,13 @@ namespace _06_Tic_Tac_Toe
                     break;
             }
             
-            Console.WriteLine(new string('=', RESULT_BORDER_LENGTH));
+            Console.WriteLine(new string('=', GameData.RESULT_BORDER_LENGTH));
         }
 
         public static void ShowAIMove()
         {
             Console.WriteLine("AI is making its move...");
-            System.Threading.Thread.Sleep(AI_DELAY_MS);
+            System.Threading.Thread.Sleep(GameData.AI_DELAY_MS);
         }
 
         public static bool AskPlayAgain()

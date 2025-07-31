@@ -15,10 +15,10 @@ namespace _06_Tic_Tac_Toe
             {
                 // Initialize game
                 Logic.InitializeBoard();
-                char gameState = Logic.CONTINUE_GAME;
+                char gameState = GameData.CONTINUE_GAME;
 
                 // Game loop
-                while (gameState == Logic.CONTINUE_GAME)
+                while (gameState == GameData.CONTINUE_GAME)
                 {
                     // Display board
                     UI.DisplayBoardWithPositions();
@@ -29,7 +29,7 @@ namespace _06_Tic_Tac_Toe
 
                     // Check game state after player move
                     gameState = Logic.GetGameState();
-                    if (gameState != Logic.CONTINUE_GAME) break;
+                    if (gameState != GameData.CONTINUE_GAME) break;
 
                     // AI turn
                     UI.ShowAIMove();
