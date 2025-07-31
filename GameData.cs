@@ -29,6 +29,10 @@ namespace _06_Tic_Tac_Toe
         public static readonly int AI_DELAY_MS = 1000;
         public static readonly int RESULT_BORDER_LENGTH = 50;
 
+        // User input constants
+        public static readonly char PLAY_AGAIN_YES_SHORT = 'y';
+        public static readonly string PLAY_AGAIN_YES_FULL = "yes";
+
         // Game Introduction Text
         public static List<string> Intro =>
         [
@@ -49,7 +53,7 @@ namespace _06_Tic_Tac_Toe
         [
             "How to play:",
             "",
-            "- You are 'X' and the AI is 'O'",
+            $"- You are '{PLAYER_SYMBOL}' and the AI is '{AI_SYMBOL}'",
             "- Enter your move as 'row column' (e.g., '0 1' for top-middle)",
             "- Try to get 3 in a row (horizontally, vertically, or diagonally)",
             "",

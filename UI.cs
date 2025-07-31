@@ -146,12 +146,12 @@ namespace _06_Tic_Tac_Toe
 
         public static bool AskPlayAgain()
         {
-            Console.WriteLine("\nWould you like to play again? (y/n):");
+            Console.WriteLine($"\nWould you like to play again? ({GameData.PLAY_AGAIN_YES_SHORT}/n):");
             Console.Write("Your choice: ");
             
             string? input = Console.ReadLine();
             return !string.IsNullOrEmpty(input) && 
-                   (input.ToLower().StartsWith('y') || input.ToLower() == "yes");
+                   (input.ToLower().StartsWith(GameData.PLAY_AGAIN_YES_SHORT) || input.ToLower() == GameData.PLAY_AGAIN_YES_FULL);
         }
     }
 }
