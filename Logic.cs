@@ -52,25 +52,76 @@ namespace _06_Tic_Tac_Toe
 
         public static bool CheckWin(char symbol)
         {
-            // Check rows
+            // Combine all three win condition checks
+            return CheckRowWin(symbol) || CheckColumnWin(symbol) || CheckDiagonalWin(symbol);
+        }
+
+        private static bool CheckRowWin(char symbol)
+        {
+            // Check all rows
             for (int row = 0; row < GameData.BOARD_SIZE; row++)
             {
-                if (gameBoard[row, 0] == symbol && gameBoard[row, 1] == symbol && gameBoard[row, 2] == symbol)
+                bool hasRowWin = true;
+                for (int col = 0; col < GameData.BOARD_SIZE; col++)
+                {
+                    if (gameBoard[row, col] != symbol)
+                    {
+                        hasRowWin = false;
+                        break;
+                    }
+                }
+                if (hasRowWin)
                     return true;
             }
+            return false;
+        }
 
-            // Check columns
+        private static bool CheckColumnWin(char symbol)
+        {
+            // Check all columns
             for (int col = 0; col < GameData.BOARD_SIZE; col++)
             {
-                if (gameBoard[0, col] == symbol && gameBoard[1, col] == symbol && gameBoard[2, col] == symbol)
+                bool hasColumnWin = true;
+                for (int row = 0; row < GameData.BOARD_SIZE; row++)
+                {
+                    if (gameBoard[row, col] != symbol)
+                    {
+                        hasColumnWin = false;
+                        break;
+                    }
+                }
+                if (hasColumnWin)
                     return true;
             }
+            return false;
+        }
 
-            // Check diagonals
-            if (gameBoard[0, 0] == symbol && gameBoard[1, 1] == symbol && gameBoard[2, 2] == symbol)
+        private static bool CheckDiagonalWin(char symbol)
+        {
+            // Check main diagonal (top-left to bottom-right)
+            bool hasMainDiagonalWin = true;
+            for (int i = 0; i < GameData.BOARD_SIZE; i++)
+            {
+                if (gameBoard[i, i] != symbol)
+                {
+                    hasMainDiagonalWin = false;
+                    break;
+                }
+            }
+            if (hasMainDiagonalWin)
                 return true;
 
-            if (gameBoard[0, 2] == symbol && gameBoard[1, 1] == symbol && gameBoard[2, 0] == symbol)
+            // Check anti-diagonal (top-right to bottom-left)
+            bool hasAntiDiagonalWin = true;
+            for (int i = 0; i < GameData.BOARD_SIZE; i++)
+            {
+                if (gameBoard[i, GameData.BOARD_SIZE - 1 - i] != symbol)
+                {
+                    hasAntiDiagonalWin = false;
+                    break;
+                }
+            }
+            if (hasAntiDiagonalWin)
                 return true;
 
             return false;
